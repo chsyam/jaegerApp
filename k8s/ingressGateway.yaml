@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: jaeger-gateway
+  namespace: jaeger
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - hosts:
+    - "jaeger.example.com"  # replace with your actual hostname
+    port:
+      number: 8080
+      name: http
+      protocol: HTTP

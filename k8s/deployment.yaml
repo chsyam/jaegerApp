@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jaeger-application
+  namespace: jaeger
+spec:
+  selector:
+    matchLabels:
+      app: jaeger-application
+  template:
+    metadata:
+      labels:
+        app: jaeger-application
+    spec:
+      containers:
+      - name: jaeger-application
+        image: syam6845/jaeger-app:latest
+        ports:
+        - containerPort: 8080
